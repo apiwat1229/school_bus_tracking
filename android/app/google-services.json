@@ -1,0 +1,128 @@
+{
+  "project_info": {
+    "project_number": "139203573081",
+    "firebase_url": "https://school-bus-tracking-28141-default-rtdb.firebaseio.com",
+    "project_id": "school-bus-tracking-28141",
+    "storage_bucket": "school-bus-tracking-28141.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139203573081:android:a407cbe5fe262237854848",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL4nMEuks8zEU5cjjaWE1sd7QhQKcecCE"
+        },
+        {
+          "current_key": "AIzaSyDggkt9ehqn8ct0z3La19kfaRsjkSrH1ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139203573081-f2c6gi8q6lpr2o8s13v0p6fvimh550sv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterapplication1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139203573081:android:6837eceee92703a3854848",
+        "android_client_info": {
+          "package_name": "com.example.gps_bus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL4nMEuks8zEU5cjjaWE1sd7QhQKcecCE"
+        },
+        {
+          "current_key": "AIzaSyDggkt9ehqn8ct0z3La19kfaRsjkSrH1ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139203573081-f2c6gi8q6lpr2o8s13v0p6fvimh550sv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterapplication1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139203573081:android:59689f6a774e409a854848",
+        "android_client_info": {
+          "package_name": "com.example.school_bus_tracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL4nMEuks8zEU5cjjaWE1sd7QhQKcecCE"
+        },
+        {
+          "current_key": "AIzaSyDggkt9ehqn8ct0z3La19kfaRsjkSrH1ns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139203573081-vnpcf6uoon5h78s6lcifargfp41979oe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139203573081-f2c6gi8q6lpr2o8s13v0p6fvimh550sv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterapplication1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
