@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

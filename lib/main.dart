@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:school_bus_tracking/widgets/drawer_menu.dart';
-import 'package:school_bus_tracking/screens/map.dart';
 
 void main() {
   runApp(const MyApp());
