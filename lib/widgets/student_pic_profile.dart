@@ -1,12 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class StudentPicProfile extends StatelessWidget {
-  const StudentPicProfile({Key? key, required this.img, required this.temp})
+  StudentPicProfile({Key? key, required this.img, required this.temp})
       : super(key: key);
   final String img;
   final double temp;
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {

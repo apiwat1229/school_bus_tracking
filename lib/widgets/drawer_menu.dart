@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:school_bus_tracking/screens/login.dart';
 import 'package:school_bus_tracking/screens/map.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
 
@@ -57,8 +57,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             leading: Icon(Icons.logout),
             title: const Text('ออกจากระบบ'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+              FirebaseAuth.instance.signOut();
             },
           ),
         ],

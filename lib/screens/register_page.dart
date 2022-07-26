@@ -1,37 +1,48 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  final VoidCallback showRegisterPage;
-  const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage({Key? key, required this.showLoginPage}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  late double screensize;
+class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim());
-  }
+  final confirmpasswordController = TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    confirmpasswordController.dispose();
     super.dispose();
+  }
+
+  Future signUp() async {
+    if (passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    }
+  }
+
+  bool passwordConfirmed() {
+    if (passwordController.text.trim() ==
+        confirmpasswordController.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    screensize = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: SafeArea(
@@ -39,20 +50,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 50),
-                width: screensize * 0.65,
-                child: Image(
-                  image: AssetImage('images/logo.png'),
-                ),
-              ),
-
               //? Text Title 1
               SizedBox(height: 20),
               Center(
                   child: Text('ระบบติดตามรถโรงเรียน',
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 20,
                           color: Colors.orange,
                           fontWeight: FontWeight.bold))),
 
@@ -61,9 +64,9 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 'สำหรับการเดินทางวิถีใหม่',
                 style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.orange,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 20,
+                  color: Colors.orange,
+                ),
               ),
 
               //? Email Input Field
@@ -113,13 +116,36 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
+              //? Confirm Password Filed
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: TextField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          icon: Icon(Icons.lock),
+                          border: InputBorder.none,
+                          hintText: 'Confirm Password'),
+                    ),
+                  ),
+                ),
+              ),
+
               //? SignIn Button
 
               SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: GestureDetector(
-                  onTap: signIn,
+                  onTap: signUp,
                   child: Container(
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -127,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(15)),
                     child: Center(
                         child: Text(
-                      'เข้าสู่ระบบ',
+                      'สมัครสมาชิก',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -143,11 +169,11 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ยังไม่ได้เป็นสมากชิก?  '),
+                  Text('ฉันเป็นสมาชิกแล้ว !  '),
                   GestureDetector(
-                    onTap: widget.showRegisterPage,
+                    onTap: widget.showLoginPage,
                     child: Text(
-                      'สมัครสมาชิก',
+                      'เข้าสู่ระบบตอนนี้',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,

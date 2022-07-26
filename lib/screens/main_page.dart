@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:school_bus_tracking/screens/login.dart';
+import 'package:school_bus_tracking/screens/auth_page.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
 
 class MainPage extends StatelessWidget {
@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
           if (snapshot.hasData) {
             return ProfilePage();
           } else {
-            return LoginPage();
+            return AuthPage();
           }
         },
       ),
