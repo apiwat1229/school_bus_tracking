@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:school_bus_tracking/main.dart';
+import 'package:school_bus_tracking/screens/loading_screen.dart';
+import 'package:school_bus_tracking/screens/login.dart';
 import 'package:school_bus_tracking/screens/map.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
 
@@ -30,13 +31,19 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.account_box),
+            title: const Text('ข้อมูลส่วนตัว'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.home),
             title: const Text('หน้าแรก'),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MyHomePage(title: "My Home Page")));
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => LoadingScreen()));
             },
           ),
           ListTile(
@@ -48,19 +55,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.account_box),
-            title: const Text('ข้อมูลส่วนตัว'),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
-            },
-          ),
-          ListTile(
             leading: Icon(Icons.logout),
             title: const Text('ออกจากระบบ'),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginPage()));
             },
           ),
         ],

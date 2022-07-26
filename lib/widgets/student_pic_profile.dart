@@ -15,7 +15,7 @@ class StudentPicProfile extends StatelessWidget {
         children: <Widget>[
           Container(
             child: CircleAvatar(
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.orange,
                 radius: 98,
                 child: CircleAvatar(
                   backgroundImage: AssetImage(img),
