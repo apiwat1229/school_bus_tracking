@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,21 +16,40 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpasswordController = TextEditingController();
+  final fullNameController = TextEditingController();
+
+  final ageController = TextEditingController();
 
   @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
     confirmpasswordController.dispose();
+    fullNameController.dispose();
+    ageController.dispose();
     super.dispose();
   }
 
+  //? Auth Create User //
+
   Future signUp() async {
+    ////* Create New User ////
+
     if (passwordConfirmed()) {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
+      ////* Add User Details ////
+
+      addUserDetails(
+          fullNameController.text.trim(), emailController.text.trim());
     }
+  }
+
+  Future addUserDetails(String name, String email) async {
+    await FirebaseFirestore.instance
+        .collection('user')
+        .add({'FullName': name, 'Email ': email});
   }
 
   bool passwordConfirmed() {
@@ -69,7 +89,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
 
-              //? Email Input Field
+              //? FirstName TextField
 
               SizedBox(height: 50),
               Padding(
@@ -82,11 +102,34 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: TextField(
+                      controller: fullNameController,
+                      decoration: InputDecoration(
+                          // icon: Icon(Icons.person),
+                          border: InputBorder.none,
+                          hintText: 'ชื่อ - นามสกุล'),
+                    ),
+                  ),
+                ),
+              ),
+
+              //? Email Input Field
+
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: TextField(
                       controller: emailController,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.person),
+                          // icon: Icon(Icons.person),
                           border: InputBorder.none,
-                          hintText: 'Email'),
+                          hintText: 'อีเมล'),
                     ),
                   ),
                 ),
@@ -108,9 +151,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.lock),
+                          // icon: Icon(Icons.lock),
                           border: InputBorder.none,
-                          hintText: 'Password'),
+                          hintText: 'รหัสผ่าน'),
                     ),
                   ),
                 ),
@@ -128,12 +171,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30),
                     child: TextField(
-                      controller: passwordController,
+                      controller: confirmpasswordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.lock),
+                          // icon: Icon(Icons.lock),
                           border: InputBorder.none,
-                          hintText: 'Confirm Password'),
+                          hintText: 'ยืนยันรหัสผ่าน'),
                     ),
                   ),
                 ),
