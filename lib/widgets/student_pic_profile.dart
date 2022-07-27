@@ -8,7 +8,7 @@ class StudentPicProfile extends StatelessWidget {
       : super(key: key);
   final String img;
   final double temp;
-  final user = FirebaseAuth.instance.currentUser;
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class StudentPicProfile extends StatelessWidget {
               width: double.infinity,
               child: Column(
                 children: [
-                  Text('ชื่อนักเรียน',
+                  Text(user.email!,
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   SizedBox(
                     height: 8,

@@ -18,7 +18,7 @@ class _NewRegisterState extends State<NewRegister> {
         child: SafeArea(
           child: Column(
             children: [
-              Text('Regidter Screen'),
+              Text('Register Screen'),
             ],
           ),
         ),

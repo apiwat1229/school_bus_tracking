@@ -49,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Future addUserDetails(String name, String email) async {
     await FirebaseFirestore.instance
         .collection('user')
-        .add({'FullName': name, 'Email ': email});
+        .add({'Full Name': name, 'Email ': email});
   }
 
   bool passwordConfirmed() {

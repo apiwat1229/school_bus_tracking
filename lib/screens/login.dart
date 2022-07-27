@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
+                      border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30),
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 15),
 
               //? Password Input Field
 
@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   decoration: BoxDecoration(
                       color: Colors.grey[200],
-                      border: Border.all(color: Colors.white),
+                      border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30),
@@ -113,28 +113,29 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              //? SignIn Button
+              //! Login Button
 
               SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: GestureDetector(
-                  onTap: signIn,
-                  child: Container(
+                child: Container(
                     padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(15)),
                     child: Center(
-                        child: Text(
-                      'เข้าสู่ระบบ',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            // onPrimary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            fixedSize: const Size(240, 45),
+                            primary: Colors.orange, onPrimary: Colors.white,
+                          ),
+                          onPressed: signIn,
+                          child: Text(
+                            'เข้าสู่ระบบ',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
                     )),
-                  ),
-                ),
               ),
 
               //? Create Ner User
