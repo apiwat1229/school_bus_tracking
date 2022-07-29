@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, avoid_print
 
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:school_bus_tracking/screens/auth_page.dart';
 import 'package:school_bus_tracking/screens/home_page.dart';
-import 'package:school_bus_tracking/screens/login.dart';
+import 'package:school_bus_tracking/screens/main_page.dart';
 import 'package:school_bus_tracking/screens/map.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
 
@@ -71,6 +73,8 @@ class _DrawerMenuState extends State<DrawerMenu> {
             onTap: () async {
               await FirebaseAuth.instance.signOut().then((value) {
                 print('Sign Out Complete');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MainPage()));
               });
             },
           ),
