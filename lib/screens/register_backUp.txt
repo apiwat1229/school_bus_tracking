@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:school_bus_tracking/widgets/alert_dialog.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
@@ -44,8 +43,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
       addUserDetails(
           fullNameController.text.trim(), emailController.text.trim());
-    } else {
-      normalDialog(BuildContext, context, ' รหัสยืนยันและรหัสผ่านไม่ถูกต้อง');
     }
   }
 

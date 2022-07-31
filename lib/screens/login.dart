@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, avoid_print
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:school_bus_tracking/widgets/alert_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -16,10 +17,29 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future signIn() async {
+  Future signIn2() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim());
+  }
+
+  Future signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+      if (e.message == 'The email address is badly formatted.') {
+        normalDialog(BuildContext, context, 'รูปแบบอีเมล์ไม่ถูกต้อง');
+      } else if (e.message ==
+          'The password is invalid or the user does not have a password.') {
+        normalDialog(BuildContext, context, 'หรัสผ่านไม่ถูกต้อง');
+      } else if (e.message ==
+          'There is no user record corresponding to this identifier. The user may have been deleted.') {
+        normalDialog(BuildContext, context, 'ไม่พบผู้ใช้งาน');
+      }
+    }
   }
 
   @override

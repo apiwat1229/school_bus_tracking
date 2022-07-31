@@ -1,14 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, avoid_print
 
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:school_bus_tracking/screens/auth_page.dart';
 import 'package:school_bus_tracking/screens/home_page.dart';
 import 'package:school_bus_tracking/screens/main_page.dart';
 import 'package:school_bus_tracking/screens/map.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
+import 'package:school_bus_tracking/widgets/alert_dialog.dart';
 
 class DrawerMenu extends StatefulWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -39,16 +37,19 @@ class _DrawerMenuState extends State<DrawerMenu> {
             leading: Icon(Icons.home),
             title: const Text('หน้าแรก'),
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => AllUserShow()));
+              normalDialog(BuildContext, context, 'กำลังปรับปรุงระบบ');
             },
           ),
           ListTile(
             leading: Icon(Icons.account_box),
             title: const Text('ข้อมูลส่วนตัว'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ProfilePage(
+                            payload: 'paylaod',
+                          )));
             },
           ),
           ListTile(
@@ -62,6 +63,14 @@ class _DrawerMenuState extends State<DrawerMenu> {
           ListTile(
             leading: Icon(Icons.person_pin),
             title: const Text('รายชื่อนักเรียนทั้งหมด'),
+            onTap: () {
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.notification_important_outlined),
+            title: const Text('ทดสอบระบบแจ้งเตือน'),
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => HomePage()));

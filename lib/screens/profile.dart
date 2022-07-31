@@ -7,7 +7,7 @@ import 'package:school_bus_tracking/widgets/student_pic_profile.dart';
 import 'package:school_bus_tracking/widgets/teacher_pic_profile.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key, required String payload}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
