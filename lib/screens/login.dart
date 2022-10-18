@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 70),
                 width: screensize * 0.65,
                 child: Image(
                   image: AssetImage('images/logo.png'),
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.bold))),
 
               //? Text Title 2
-              SizedBox(height: 10),
+              SizedBox(height: 15),
               Text(
                 'สำหรับการเดินทางวิถีใหม่',
                 style: TextStyle(
@@ -103,12 +103,12 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                           icon: Icon(Icons.person),
                           border: InputBorder.none,
-                          hintText: 'Email'),
+                          hintText: 'Username / Email'),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 12),
 
               //? Password Input Field
 
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
 
               //! Login Button
 
-              SizedBox(height: 30),
+              SizedBox(height: 60),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -144,10 +144,11 @@ class _LoginPageState extends State<LoginPage> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             // onPrimary: Colors.white,
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.orange,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             fixedSize: const Size(240, 45),
-                            primary: Colors.orange, onPrimary: Colors.white,
                           ),
                           onPressed: signIn,
                           child: Text(
@@ -161,22 +162,22 @@ class _LoginPageState extends State<LoginPage> {
               //? Create Ner User
 
               SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('ยังไม่ได้เป็นสมากชิก?  '),
-                  GestureDetector(
-                    onTap: widget.showRegisterPage,
-                    child: Text(
-                      'สมัครสมาชิก',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.orange),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: [
+              //     Text('ยังไม่ได้เป็นสมากชิก?  '),
+              //     GestureDetector(
+              //       onTap: widget.showRegisterPage,
+              //       child: Text(
+              //         'สมัครสมาชิก',
+              //         style: TextStyle(
+              //             fontWeight: FontWeight.bold,
+              //             fontSize: 18,
+              //             color: Colors.orange),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         ),

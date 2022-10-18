@@ -2,12 +2,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:school_bus_tracking/screens/driver_page.dart';
 import 'package:school_bus_tracking/screens/home_page.dart';
 import 'package:school_bus_tracking/screens/list_name.dart';
 import 'package:school_bus_tracking/screens/main_page.dart';
 import 'package:school_bus_tracking/screens/map.dart';
 import 'package:school_bus_tracking/screens/profile.dart';
-import 'package:school_bus_tracking/widgets/alert_dialog.dart';
 
 class DrawerMenu extends StatefulWidget {
   const DrawerMenu({Key? key}) : super(key: key);
@@ -38,19 +38,20 @@ class _DrawerMenuState extends State<DrawerMenu> {
             leading: Icon(Icons.home),
             title: const Text('หน้าแรก'),
             onTap: () {
-              normalDialog(BuildContext, context, 'กำลังปรับปรุงระบบ');
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.account_box),
-            title: const Text('ข้อมูลส่วนตัว'),
-            onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => ProfilePage(
                             payload: 'paylaod',
                           )));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.account_box),
+            title: const Text('ข้อมูลคนขับรถ'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DriverProfile()));
             },
           ),
           ListTile(
@@ -63,7 +64,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
           ),
           ListTile(
             leading: Icon(Icons.person_pin),
-            title: const Text('รายชื่อนักเรียนทั้งหมด'),
+            title: const Text('รายชื่อนักเรียนทั้งหมดนรถ'),
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ListNameStudents()));

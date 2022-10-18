@@ -35,12 +35,14 @@ class _ListNameStudentsState extends State<ListNameStudents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(user.email!),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Signed In as : ' + user.email!),
             Expanded(
                 child: FutureBuilder(
               future: getDocID(),
